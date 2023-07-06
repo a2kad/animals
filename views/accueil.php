@@ -13,9 +13,14 @@
           <div class="card shadow-sm">
             <div class="card-body">
               <p class="card-text">Nom : <?= $row['name'] ?></p>
+              <p class="card-text">Type : <?= $row['type'] ?></p>
+              <p class="card-text">Race : <?= $row['name_race'] ?></p>
+              <p class="card-text">Sex : <?= $row['sex'] ?></p>
               <p class="card-text">Date de naissance : <?= $row['date_of_birth'] ?></p>
               <p class="card-text">Poids : <?= $row['weight'] ?></p>
-
+              <p class="card-text">Tatué : <?= $row['tatoo']==0 ? 'Oui' : 'Non' ?></p>
+              <p class="card-text">Chip : <?= $row['chip']==0 ? 'Oui' : 'Non' ?></p>
+              <p class="card-text">Couleur : <?= $row['color'] ?></p>
             </div>
           </div>
         </div>
