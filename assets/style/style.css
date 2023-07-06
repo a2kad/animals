@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 .foot{
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.header-text{
+    font-family: 'Courgette', cursive;
 }

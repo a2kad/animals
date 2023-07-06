@@ -9,5 +9,5 @@
 </head>
 <body>
     
-    <div class="text-center"><h1>Refuge Afpa</h1></div>
+    <div class="text-center header-text my-3"><h1>Refuge Afpa</h1></div>
 
