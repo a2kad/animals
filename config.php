@@ -1,5 +1,5 @@
 <?php
 define('HOST', 'localhost');
 define('DATABASE', 'animals_afpa');
-define('USER_DATABASE', 'covid');
-define('PASSWORD_DATABASE', 'covid');
+define('USER_DATABASE', 'root');
+define('PASSWORD_DATABASE', '');

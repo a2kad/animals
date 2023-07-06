@@ -15,7 +15,7 @@ class Animals{
     public static function getAllAnimals() : array{
         $pdo = Database::getInstancePDO();
 
-        $sql = "";
+        $sql = "SELECT * FROM `animals`";
         
         $pdo_statement = $pdo->query($sql);
         $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
