@@ -16,6 +16,7 @@ class Animals{
         $pdo = Database::getInstancePDO();
 
         $sql = "SELECT 
+        `a`.`id`,
         `a`.`name`,
         `a`.`date_of_birth`,
         `a`.`tatoo`,

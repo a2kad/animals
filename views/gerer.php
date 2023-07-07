@@ -12,6 +12,7 @@
             <th scope="col">Tatué</th>
             <th scope="col">Chip</th>
             <th scope="col">Couleur</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,11 +26,18 @@
                 <td><?= $row['sex'] ?></td>
                 <td><?= $row['date_of_birth'] ?></td>
                 <td><?= $row['weight'] ?></td>
-                <td><?= $row['tatoo']==0 ? 'Oui' : 'Non' ?></td>
-                <td><?= $row['chip']==0 ? 'Oui' : 'Non' ?></td>
+                <td><?= $row['tatoo'] == 0 ? 'Oui' : 'Non' ?></td>
+                <td><?= $row['chip'] == 0 ? 'Oui' : 'Non' ?></td>
                 <td><?= $row['color'] ?></td>
+                <td>
+                    <form action="" method="get">
+                        <a href="?del=<?= $row['id'] ?>" type="submit" class="btn btn-primary btn-sm">Supprimer</a>
+                        <a href="controller-modifier.php?modif=<?= $row['id'] ?>" type="submit" class="btn btn-secondary btn-sm">Modifier</a>
+                    </form>
+                </td>
             </tr>
-        <?php } ?>
+        <?php }
+        ?>
     </tbody>
 </table>
 <?php include "components/footer.php" ?>

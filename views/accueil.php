@@ -21,6 +21,7 @@
               <p class="card-text">Tatué : <?= $row['tatoo']==0 ? 'Oui' : 'Non' ?></p>
               <p class="card-text">Chip : <?= $row['chip']==0 ? 'Oui' : 'Non' ?></p>
               <p class="card-text">Couleur : <?= $row['color'] ?></p>
+              
             </div>
           </div>
         </div>
