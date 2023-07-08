@@ -2,24 +2,7 @@
 <?php include "components/navbar.php" ?>
 <div class="container ">
     <?php
-    if (isset($_POST['submit'])) {
-        $date_of_birth = $_POST['date_of_birth'];
-        $tatoo = $_POST['tatoo'];
-        $chip = $_POST['chip'];
-        $name = $_POST['name'];
-        $weight = $_POST['weight'];
-        $id_color = $_POST['id_color'];
-        $id_type = $_POST['id_type'];
-        $id_sex = $_POST['sex'];
-        $id_race = $_POST['id_race'];
     
-        $result_modif = Gerer::modifierAnimal($id, $date_of_birth, $tatoo, $chip, $name, $weight, $id_color, $id_type, $id_sex, $id_race);
-        if($result_modif){
-            echo 'Modif OK';
-        }else{
-            echo 'Modif Error';
-        }
-    }
 
     if (isset($_GET['modif'])) {
         $id = $_GET['modif'];
@@ -40,7 +23,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="nee" class="form-label">Née</label>
-                    <input type="text" class="form-control" id="nee" name="date_of_birth" value="<?= $row['date_of_birth'] ?>">
+                    <input type="date" class="form-control" id="nee" name="date_of_birth" value="<?= $row['date_of_birth'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="tatoo" class="form-label">Tatoué</label>
@@ -101,12 +84,32 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button value="submit" name="submit" type="submit" class="btn btn-primary">Save</button>
             </form>
 
     <?php }
         
     }
+
+    if (isset($_POST['submit'])) {
+        $date_of_birth = $_POST['date_of_birth'];
+        $tatoo = $_POST['tatoo'];
+        $chip = $_POST['chip'];
+        $name = $_POST['name'];
+        $weight = $_POST['weight'];
+        $id_color = $_POST['id_color'];
+        $id_type = $_POST['id_type'];
+        $id_sex = $_POST['sex'];
+        $id_race = $_POST['id_race'];
+    
+        $result_modif = Gerer::modifierAnimal($id, $date_of_birth, $tatoo, $chip, $name, $weight, $id_color, $id_type, $id_sex, $id_race);
+        if($result_modif){
+            echo 'Modif OK';
+        }else{
+            echo 'Modif Error';
+        }
+    }
+
     ?>
 </div>
 <?php include "components/footer.php" ?>

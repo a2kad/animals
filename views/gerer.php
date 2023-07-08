@@ -31,9 +31,10 @@
                 <td><?= $row['color'] ?></td>
                 <td>
                     <form action="" method="get">
-                        <a href="?del=<?= $row['id'] ?>" type="submit" class="btn btn-primary btn-sm">Supprimer</a>
-                        <a href="controller-modifier.php?modif=<?= $row['id'] ?>" type="submit" class="btn btn-secondary btn-sm">Modifier</a>
+                        <a href="?del=<?=$row['id']?>" type="submit" class="btn btn-primary btn-sm">Supprimer</a>
+                        <a href="controller-modifier.php?modif=<?=$row['id']?>" type="submit" class="btn btn-secondary btn-sm">Modifier</a>
                     </form>
+                    
                 </td>
             </tr>
         <?php }

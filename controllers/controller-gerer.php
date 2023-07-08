@@ -7,11 +7,9 @@ include '../views/gerer.php';
 if (isset($_GET['del'])){
     $id = $_GET['del'];
     $result = Gerer::delAnimal($id);
-    if ($result){
-        echo 'Del OK';
-        //header("Location: controller-gerer.php");
-    }else{
-        echo 'Del Error';
-    }
+    echo 'Del OK';
+    //header("Location: controllers/controller-gerer.php"); 
+    //exit;
+    
 }
 
