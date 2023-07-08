@@ -7,3 +7,9 @@
 .header-text{
     font-family: 'Courgette', cursive;
 }
+
+.checkbox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
