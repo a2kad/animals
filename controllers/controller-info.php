@@ -6,7 +6,7 @@ require_once "../models/Gerer.php";
 
 if (isset($_GET['info'])){
     $id = $_GET['info'];
-    $result = Gerer::getAnimal($id);
+    $result_info = Gerer::getAnimal($id);
     echo 'Info OK';
     //header("Location: controller-gerer.php"); 
     //exit;
