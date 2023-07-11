@@ -12,9 +12,6 @@ $insert = false;
 $error = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["modify"])) {
-        echo "ok";
-    }
     if (isset($_POST["name"])) {
         $name = $_POST["name"];
 
@@ -105,15 +102,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($error) == 0) {
         $showForm = false;
-        $message = "Êtes-vous sûr de vouloir ajouter cet animal ?";
-        if (isset($_POST["add"])) {
-            $insert = true;
-            $result = Ajouter::addAnimal($name, $type, $race, $sex, $date, $weight, $tatoo, $color, $chip);
-            if ($result) {
-                echo "L'animal a bien été ajouté";
-            } else {
-                echo "L'animal n'a pas pu être ajouté";
-            }
+        $result = Ajouter::addAnimal($name, $type, $race, $sex, $date, $weight, $tatoo, $color, $chip);
+        if ($result) {
+            $message = "L'animal a bien été ajouté";
+        } else {
+            $message = "L'animal n'a pas pu être ajouté";
         }
     }
 }
