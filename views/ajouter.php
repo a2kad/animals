@@ -130,10 +130,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary ">Envoyer</button>
             </fieldset>
-        <?php } else {  ?>
-            <p><?= $message ?></p>
-            <button type="submit" name="add">Ajouter</button>
-            <button type="submit" name="modify">Modifier</button>
+        <?php } else { ?>
+
+            <div class="alert alert-success" role="alert">
+                <?= $message ?>
+            </div>
+
         <?php } ?>
         </form>
 
@@ -142,19 +144,3 @@
 
     </div>
     <?php include "components/footer.php" ?>
-
-
-    <p> test </p>
-
-    <ul>
-        <li><?= var_dump($name) ?></li>
-        <li><?= $type ?></li>
-        <li><?= $race ?></li>
-        <li><?= $sex ?></li>
-        <li><?= $date ?></li>
-        <li><?= $weight ?></li>
-        <li><?= $tatoo ?></li>
-        <li><?= $color ?></li>
-        <li><?= $chip ?></li>
-        <p><?= $message ?></p>
-    </ul>
