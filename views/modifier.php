@@ -2,45 +2,25 @@
 <?php include "components/navbar.php" ?>
 <div class="container ">
     <?php
-    if (isset($_POST['submit'])) {
-        $date_of_birth = $_POST['date_of_birth'];
-        $tatoo = $_POST['tatoo'];
-        $chip = $_POST['chip'];
-        $name = $_POST['name'];
-        $weight = $_POST['weight'];
-        $id_color = $_POST['id_color'];
-        $id_type = $_POST['id_type'];
-        $id_sex = $_POST['sex'];
-        $id_race = $_POST['id_race'];
-    
-        $result_modif = Gerer::modifierAnimal($id, $date_of_birth, $tatoo, $chip, $name, $weight, $id_color, $id_type, $id_sex, $id_race);
-        if($result_modif){
-            echo 'Modif OK';
-        }else{
-            echo 'Modif Error';
-        }
-    }
+
 
     if (isset($_GET['modif'])) {
         $id = $_GET['modif'];
         $result = Gerer::getAnimal($id);
-        if ($result) {
-            echo 'Get OK';
-            //header("Location: controller-gerer.php");
-        } else {
-            echo 'Get Error';
-        }
+
 
         foreach ($result as $row) {
     ?>
+
             <form class="mx-5" method="post" action="">
+                <input type="hidden" class="form-control" name="id" id="id" value="<?= $row['id'] ?>">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
                     <input type="text" class="form-control" name="name" id="name" value="<?= $row['name'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="nee" class="form-label">Née</label>
-                    <input type="text" class="form-control" id="nee" name="date_of_birth" value="<?= $row['date_of_birth'] ?>">
+                    <input type="date" class="form-control" id="nee" name="date_of_birth" value="<?= $row['date_of_birth'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="tatoo" class="form-label">Tatoué</label>
@@ -101,12 +81,28 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button value="submit" name="submit" type="button" class="btn btn-primary" id="liveToastBtn">Modifier</button>
+                
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="..." class="rounded me-2" alt="...">
+                        <strong class="me-auto">Bootstrap</strong>
+                        <small>11 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                </div>
+            </div>
             </form>
 
+            
+
     <?php }
-        
     }
+
     ?>
 </div>
 <?php include "components/footer.php" ?>

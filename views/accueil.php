@@ -12,7 +12,7 @@
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-body">
-              <p class="card-text">Nom : <?= $row['name'] ?></p>
+              <h2 class="card-text">Nom : <?= $row['name'] ?></h2>
               <p class="card-text">Type : <?= $row['type'] ?></p>
               <p class="card-text">Race : <?= $row['name_race'] ?></p>
               <p class="card-text">Sex : <?= $row['sex'] ?></p>

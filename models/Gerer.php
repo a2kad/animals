@@ -22,6 +22,7 @@ class Gerer
         `id` = $id";
 
         $pdo->query($sql);
+
         return true;
     }
     public static function getAnimal($id)
@@ -66,21 +67,21 @@ class Gerer
     {
         $pdo = Database::getInstancePDO();
 
-        $sql = "UPDATE `animals` 
+        $sql_upd = "UPDATE `animals` 
         SET 
-        `date_of_birth` = $date_of_birth,
-        `tatoo` = $tatoo,
-        `chip` = $chip,
-        `name` = $name,
-        `weight` = $weight,
-        `id_color` = $id_color,
-        `id_type` = $id_type,
-        `id_sex` = $id_sex,
-        `id_race` = $id_race
+        `date_of_birth` = '$date_of_birth',
+        `tatoo` = '$tatoo',
+        `chip` = '$chip',
+        `name` = '$name',
+        `weight` = '$weight',
+        `id_color` = '$id_color',
+        `id_type` = '$id_type',
+        `id_sex` = '$id_sex',
+        `id_race` = '$id_race'
         WHERE
-        `id` = $id";
+        `id` = '$id'";
 
-        $pdo->query($sql);
+        $pdo->query($sql_upd);
         return true;
     }
     public static function getColor()
