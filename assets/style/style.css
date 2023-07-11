@@ -1,15 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-.foot{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-.header-text{
+
+.header-text {
     font-family: 'Courgette', cursive;
 }
 
-.checkbox{
+.mycontain {
+    width: 50%;
+}
+
+.checkbox {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
+i {
+    color: brown;
+}
+
+.mywidth {
+    width: 50%;
+}
+
+.date {
+    width: 25%;
+}
+
+#cat {
+    display: none;
+}
+
+#dog {
+    display: none;
+}
+
+.margin{
+    
+}
+
+.weight {
+    width: 5em;
+}
+
+.cgu{
+    width: 50%;
+}
+
+.foot {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+@media (max-width: 800px) {
+    .mycontain {
+        width: 100%;
+    }
+
+    .mywidth {
+        width: 75%;
+    }
+
+    .date {
+        width: 50%;
+    }
+
+    .checkbox {
+        flex-direction: column;
+    }
+
+    .weight {
+        width: 4em;
+    }
+    }
