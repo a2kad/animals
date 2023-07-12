@@ -18,10 +18,10 @@
               <p class="card-text">Sex : <?= $row['sex'] ?></p>
               <p class="card-text">Date de naissance : <?= $row['date_of_birth'] ?></p>
               <p class="card-text">Poids : <?= $row['weight'] ?></p>
-              <p class="card-text">Tatué : <?= $row['tatoo']==0 ? 'Oui' : 'Non' ?></p>
-              <p class="card-text">Chip : <?= $row['chip']==0 ? 'Oui' : 'Non' ?></p>
+              <p class="card-text">Tatué : <?= $row['tatoo']==1 ? 'Oui' : 'Non' ?></p>
+              <p class="card-text">Chip : <?= $row['chip']==1 ? 'Oui' : 'Non' ?></p>
               <p class="card-text">Couleur : <?= $row['color'] ?></p>
-              <a href="../controllers/controller-info.php?info=<?= $row['id'] ?>" class="btn btn-info">+ info</a>
+              <a href="../controllers/controller-info.php?info=<?= $row['id'] ?>" class="card-link">Plus d'info</a>
               
             </div>
           </div>
