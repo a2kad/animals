@@ -8,11 +8,6 @@ if (isset($_GET['info'])){
     $id = $_GET['info'];
     $result_info = Gerer::getAnimal($id);
     echo 'Info OK';
-    //header("Location: controller-gerer.php"); 
-    //exit;
-    
 }
-
-
 
 include '../views/info.php';
