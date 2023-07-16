@@ -17,7 +17,7 @@
 i {
     color: brown;
 }
-
+.error{color: red;}
 .mywidth {
     width: 50%;
 }
