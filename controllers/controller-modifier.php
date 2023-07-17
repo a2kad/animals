@@ -1,10 +1,19 @@
 <?php
+
+if (!isset($_SESSION['user'])){
+    header('Location: ../controllers/controller-login.php');
+    exit;
+}else{
+
 require_once "../config.php";
 require_once "../helpers/Database.php";
 require_once "../models/Animals.php";
 require_once "../models/Gerer.php";
 
 $regexString = '/^[a-zA-Z]+$/';
+$regexWeight = '/^[0-9.]+$/';
+$regexDate = '/^[0-9]{4}-[0-9]{2}-[0-9]{2}+$/';
+$showForm = true;
 $error = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,18 +32,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tatoo = htmlspecialchars($_POST['tatoo']);
         $chip = htmlspecialchars($_POST['chip']);
         
-        $weight = htmlspecialchars($_POST['weight']);
+        
         $id_color = htmlspecialchars($_POST['id_color']);
         $id_type = htmlspecialchars($_POST['id_type']);
         $id_sex = htmlspecialchars($_POST['sex']);
         $id_race = htmlspecialchars($_POST['id_race']);
 
+    }
+
+    if (isset($_POST["weight"])) {
+        $weight = htmlspecialchars($_POST['weight']);
+
+        if (empty($weight)) {
+            $error["weight"] = "Champs obligatoire";
+        } else if (!preg_match($regexWeight, $weight)) {
+            $error["weight"] = "Mauvais format poids";
+        }
+    }
+
+    if (count($error) == 0) {
+        $showForm = false;
         $result_modif = Gerer::modifierAnimal($id, $date_of_birth, $tatoo, $chip, $name, $weight, $id_color, $id_type, $id_sex, $id_race);
         if ($result_modif) {
-            echo 'Modif OK';
+            $message = "L'animal a bien été modifié";
         } else {
-            echo 'Modif Error';
+            $message = "L'animal n'a pas pu être modifié";
         }
     }
 }
 include '../views/modifier.php';
+}
