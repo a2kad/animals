@@ -3,6 +3,7 @@ require_once "../config.php";
 require_once "../helpers/Database.php";
 require_once "../models/Animals.php";
 require_once "../models/Gerer.php";
+require_once "../models/Users.php";
 
 $regexString = '/^[a-zA-Z]+$/';
 $error_login = [];
@@ -27,6 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $error_login['pass'] = 'Mot de passe : <i class="error">Mauvais format du mot de passe</i>';
             $error_login['pass_class']='is-invalid';
         }
+    }
+    if(Users::checkLogin($username)){
+        $_SESSION['user']=$username;
+        header('Location: ../controllers/controller-admin.php');
+        exit;
+    }else{
+        $error_login['name']= 'Identifiant : <i class="error">Login incorrect</i>';
+        $error_login['name_class']='is-invalid';
     }
 }
 
