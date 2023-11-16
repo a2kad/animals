@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "../config.php";
 require_once "../helpers/Database.php";
 require_once "../models/Animals.php";
@@ -7,6 +9,8 @@ require_once "../models/Users.php";
 
 $regexString = '/^[a-zA-Z]+$/';
 $error_login = [];
+
+var_dump($_POST);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['username'])){
@@ -29,14 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $error_login['pass_class']='is-invalid';
         }
     }
+
+
+
     if(Users::checkLogin($username)){
+        var_dump(1);
         $_SESSION['user']=$username;
+
         header('Location: ../controllers/controller-admin.php');
+        
         exit;
     }else{
         $error_login['name']= 'Identifiant : <i class="error">Login incorrect</i>';
         $error_login['name_class']='is-invalid';
     }
 }
+
+var_dump($error_login);
 
 include '../views/login.php';

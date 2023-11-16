@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (!isset($_SESSION['user'])){
     header('Location: ../controllers/controller-login.php');
     exit;
